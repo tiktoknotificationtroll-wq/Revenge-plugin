@@ -1,5 +1,4 @@
 {
-	"name": "My Plugin Repository",
-	"description": "Example plugin repository from the Revenge plugin template.",
-	"channels": {}
+  "name": "BadgeForge Plugin Repository",
+  "description": "Local cosmetic profile showcase tools for Revenge."
 }
