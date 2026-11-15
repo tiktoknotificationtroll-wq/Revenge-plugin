@@ -148,7 +148,7 @@ export default plugin<{ jsonStorage: BadgeForgeSettings }>({
       before(React, 'createElement', patchBadgeProps),
     )
 
-    pluginApi.logger.log('BadgeForge profile patches registered')
+    api.logger.log('BadgeForge profile patches registered')
   },
   SettingsComponent({ api }) {
     const settings = api.jsonStorage.use() ?? defaults
