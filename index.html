@@ -27,15 +27,19 @@ a.source:hover{text-decoration:underline}
 <main>
 <h1>BadgeForge</h1>
 <p>Custom profile badges and a personal showcase for Revenge. Add your own badge labels, set a profile join date, and display custom game activity.</p>
+<p class="hint"><strong>Direct plugin install</strong></p>
+<a class="url" id="direct" href="https://tiktoknotificationtroll-wq.github.io/Revenge-plugin/direct/">https://tiktoknotificationtroll-wq.github.io/Revenge-plugin/direct/</a>
+<p class="hint">Use this URL in Revenge's Install a plugin prompt. It now serves both manifest.json and index.js.</p>
+<p class="hint"><strong>Repository install</strong></p>
 <a class="url" id="repo" href="https://tiktoknotificationtroll-wq.github.io/Revenge-plugin/">https://tiktoknotificationtroll-wq.github.io/Revenge-plugin/</a>
-<p class="hint">In Revenge, open Settings → Revenge → Plugins, tap the settings gear, choose Add repository, and paste the URL above. Revenge will read the index and show BadgeForge in Browse Plugins.</p>
+<p class="hint">For the plugin browser, open Settings → Revenge → Plugins, tap the settings gear, choose Add repository, and paste this repository URL.</p>
 <div class="status" id="status" aria-live="polite"></div>
 <p class="hint">BadgeForge is cosmetic and local to your client. It does not grant official Discord badges or change Discord's server-side account data.</p>
 <footer>Made by Niche Games · <a class="source" href="https://github.com/tiktoknotificationtroll-wq/Revenge-plugin">Source code on GitHub</a></footer>
 </main>
 <script>
-const link=document.getElementById("repo"),status=document.getElementById("status");
-link.addEventListener("click",async event=>{event.preventDefault();try{await navigator.clipboard.writeText(link.href);status.textContent="Copied plugin repository URL."}catch{status.textContent="Long-press the URL above and choose Copy."}});
+const links=[document.getElementById("direct"),document.getElementById("repo")],status=document.getElementById("status");
+links.forEach(link=>link.addEventListener("click",async event=>{event.preventDefault();try{await navigator.clipboard.writeText(link.href);status.textContent="Copied "+(link.id==="direct"?"direct install":"repository")+" URL."}catch{status.textContent="Long-press the URL above and choose Copy."}}));
 </script>
 </body>
 </html>
