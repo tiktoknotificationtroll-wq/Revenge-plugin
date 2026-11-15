@@ -22,6 +22,7 @@ const badgeIcon = 'https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/72x
 type UseBadges = (user: { userId: string } | null) => unknown[]
 
 let storage: JsonStorage<BadgeForgeSettings>
+let active = false
 let version = 0
 const listeners = new Set<() => void>()
 
@@ -64,7 +65,7 @@ function patchBadgeProps<Args extends [unknown, unknown?, ...unknown[]]>(args: A
   if (name !== 'ProfileBadge' || !args[1] || typeof args[1] !== 'object') return args
 
   const props = args[1] as Record<string, unknown>
-  if (typeof props.id !== 'string' || !props.id.startsWith('bf-')) return args
+  if (!active || typeof props.id !== 'string' || !props.id.startsWith('bf-')) return args
   const userId = props.id.split('-')[1]
   const item = getShowcaseBadges(userId).find(badge => badge.id === props.id)
   if (!item) return args
@@ -86,35 +87,68 @@ const styles = {
 export default plugin<{ jsonStorage: BadgeForgeSettings }>({
   jsonStorage: { load: true, default: defaults },
   start(api) {
-    storage = api.jsonStorage
-    api.cleanup(
-      storage.subscribe(() => notify()),
+    const { cleanup, jsonStorage, plugin: pluginApi } = api
+    active = true
+
+    if (pluginApi.startedLate) {
+      pluginApi.requireReload()
+      return
+    }
+
+    storage = jsonStorage
+    cleanup(() => {
+      active = false
+    })
+    cleanup(storage.subscribe(() => notify()))
+
+    cleanup(
       getModules(
         withName<UseBadges>('useBadges'),
         module => {
-          if (!('default' in module) || typeof module.default !== 'function') return
-          api.cleanup(
+          if (
+            !active ||
+            !('default' in module) ||
+            typeof module.default !== 'function'
+          ) return
+
+          cleanup(
             instead(module, 'default', function (args, original) {
               useSyncExternalStore(subscribe, getSnapshot)
               const result = Reflect.apply(original, this, args)
               const user = args[0]
-              if (!user?.userId || !Array.isArray(result)) return result
-              const existing = new Set(result.flatMap(item =>
-                item && typeof item === 'object' && 'id' in item && typeof item.id === 'string'
-                  ? [item.id]
-                  : [],
-              ))
-              return [...result, ...getShowcaseBadges(user.userId).filter(item => !existing.has(item.id))]
+              if (!active || !user?.userId || !Array.isArray(result)) return result
+
+              const existing = new Set(
+                result.flatMap(item =>
+                  item &&
+                  typeof item === 'object' &&
+                  'id' in item &&
+                  typeof item.id === 'string'
+                    ? [item.id]
+                    : [],
+                ),
+              )
+
+              return [
+                ...result,
+                ...getShowcaseBadges(user.userId).filter(
+                  item => !existing.has(item.id),
+                ),
+              ]
             }),
           )
         },
         { returnNamespace: true, max: Infinity },
       ),
+    )
+
+    cleanup(
       before(ReactJSXRuntime, 'jsx', patchBadgeProps),
       before(ReactJSXRuntime, 'jsxs', patchBadgeProps),
       before(React, 'createElement', patchBadgeProps),
     )
-    api.logger.log('BadgeForge profile patches registered')
+
+    pluginApi.logger.log('BadgeForge profile patches registered')
   },
   SettingsComponent({ api }) {
     const settings = api.jsonStorage.use() ?? defaults
