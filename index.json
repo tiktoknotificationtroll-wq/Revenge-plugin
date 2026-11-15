@@ -12,7 +12,7 @@
       },
       "versions": {
         "1.0.2": {
-          "url": "https://raw.githubusercontent.com/tiktoknotificationtroll-wq/Revenge-plugin/gh-pages/pool/dev.nichegames.badgeforge@1.0.2.zip",
+          "url": "https://tiktoknotificationtroll-wq.github.io/Revenge-plugin/pool/dev.nichegames.badgeforge@1.0.2.zip",
           "sha256": "0bd464321f9cf6299716aa13d3ab601ca085f1aaf11a2c564e956b132fc99cf2",
           "size": 2372,
           "dependencies": {
