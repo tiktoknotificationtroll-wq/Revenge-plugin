@@ -4,13 +4,13 @@
   "name": "BadgeForge",
   "description": "Create a local-only mock profile showcase with custom badge labels, account date and game playtime.",
   "author": "Niche Games",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "dependencies": {
     "revenge.api": {
       "version": ">=1 <2"
     },
     "discord": {
-      "version": "*"
+      "version": ">=351.1"
     }
   },
   "dist": {
