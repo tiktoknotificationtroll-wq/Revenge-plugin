@@ -16,7 +16,7 @@ All values are local cosmetics. They do not modify Discord account data, grant o
 
 The packaged plugin ZIP is published by the GitHub Actions release workflow to the `gh-pages` pool. After the release workflow succeeds, add this repository URL in Revenge:
 
-`https://raw.githubusercontent.com/tiktoknotificationtroll-wq/Revenge-plugin/gh-pages`
+`https://tiktoknotificationtroll-wq.github.io/Revenge-plugin/`
 
 You can also sideload the generated `dev.nichegames.badgeforge@<version>.zip` from the repository's Actions artifact or published pool.
 
