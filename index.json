@@ -8,7 +8,7 @@
       "description": "Create a local-only mock profile showcase with custom badge labels, account date and game playtime.",
       "author": "Niche Games",
       "channels": {
-        "latest": "1.0.2"
+        "latest": "1.0.3"
       },
       "versions": {
         "1.0.2": {
@@ -21,6 +21,19 @@
             },
             "discord": {
               "version": "*"
+            }
+          }
+        },
+        "1.0.3": {
+          "url": "https://tiktoknotificationtroll-wq.github.io/Revenge-plugin/pool/dev.nichegames.badgeforge@1.0.3.zip",
+          "sha256": "b4df0f64355945c46a65f13cab363fe74bb543dd817e3373f1faa3a4d1be5954",
+          "size": 2376,
+          "dependencies": {
+            "revenge.api": {
+              "version": ">=1 <2"
+            },
+            "discord": {
+              "version": ">=351.1"
             }
           }
         }
