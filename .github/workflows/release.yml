@@ -46,6 +46,10 @@ jobs:
         id: plan
         run: .github/scripts/plan-releases.sh
 
+      - name: Type-check BadgeForge
+        if: steps.plan.outputs.count != '0'
+        run: bunx tsc -p plugins/badgeforge/tsconfig.json --noEmit
+
       - name: Build plugins
         if: steps.plan.outputs.count != '0'
         run: ./gradlew --no-daemon packageAllPlugins
