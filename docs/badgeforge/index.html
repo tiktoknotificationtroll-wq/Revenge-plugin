@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#171923">
+<meta name="description" content="BadgeForge for Revenge. Customise your Discord profile with local cosmetic badges, a showcase date and mock game activity.">
+<title>BadgeForge · Revenge Plugin</title>
+<style>
+:root{color-scheme:dark;--bg:#11131b;--panel:#1b1e2a;--panel2:#222636;--text:#f5f6fb;--muted:#a6adc0;--accent:#9b8cff;--line:#30364a}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#39305f 0,transparent 48%),var(--bg);color:var(--text);font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:inherit}.wrap{width:min(920px,calc(100% - 36px));margin:auto}.top{display:flex;align-items:center;justify-content:space-between;padding:24px 0}.brand{font-weight:800;letter-spacing:.02em}.brand span{color:var(--accent)}.tag{border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--muted);font-size:12px}
+.hero{text-align:center;padding:64px 0 46px}.icon{width:82px;height:82px;border-radius:25px;display:grid;place-items:center;margin:0 auto 22px;background:linear-gradient(145deg,#b4a5ff,#7562dc);box-shadow:0 16px 55px #8873ff40;font-size:40px;color:#171323}
+.eyebrow{color:#b9adff;text-transform:uppercase;letter-spacing:.17em;font-size:11px;font-weight:800}.hero h1{font-size:clamp(42px,8vw,66px);line-height:1.04;letter-spacing:-.055em;margin:12px 0}.hero p{max-width:590px;margin:16px auto 26px;color:var(--muted);font-size:17px}
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:12px 19px;border-radius:12px;font-weight:750;background:var(--accent);color:#171323}.btn.secondary{background:var(--panel2);border:1px solid var(--line);color:var(--text)}
+.meta{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:23px}.pill{background:#ffffff0a;border:1px solid var(--line);border-radius:999px;padding:5px 11px;color:var(--muted);font-size:12px}
+.preview{margin:8px auto 58px;max-width:650px;background:linear-gradient(145deg,#24283a,#191c28);border:1px solid #41445b;border-radius:22px;padding:22px;box-shadow:0 25px 80px #0005}.preview-head{display:flex;align-items:center;gap:14px}.avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(145deg,#b5a6ff,#6254a8);display:grid;place-items:center;font-weight:900}.user{font-weight:800}.sub{color:var(--muted);font-size:12px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.badge{background:#30344a;border:1px solid #484d68;border-radius:8px;padding:6px 10px;font-size:12px;color:#e6e1ff}
+section{padding:28px 0 38px}h2{font-size:25px;letter-spacing:-.03em;margin:0 0 16px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:19px}.card h3{font-size:16px;margin:0 0 6px}.card p{color:var(--muted);font-size:14px;margin:0}
+.steps{counter-reset:step;display:grid;gap:12px}.step{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);padding:16px;border-radius:14px}.num{flex:0 0 28px;height:28px;border-radius:9px;background:#9b8cff22;color:#c2b8ff;display:grid;place-items:center;font-weight:800}.step p{margin:0;color:var(--muted);font-size:14px}.step strong{color:var(--text)}
+.note{border:1px solid #665a9d;background:#9b8cff12;padding:16px;border-radius:14px;color:#d9d3ff;font-size:13px}
+footer{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+@media(max-width:620px){.hero{padding-top:45px}.grid{grid-template-columns:1fr}.preview{padding:17px}.top{padding:18px 0}}
+</style>
+</head>
+<body><div class="wrap">
+<header class="top"><div class="brand">BADGE<span>FORGE</span></div><div class="tag">REVENGE PLUGIN</div></header>
+<main>
+<div class="hero">
+<div class="icon">✦</div><div class="eyebrow">Profile customisation</div>
+<h1>Your profile.<br> Your style.</h1>
+<p>Build a custom profile showcase in Revenge with cosmetic badges, a fictional join date and game activity you can configure yourself.</p>
+<div class="actions"><a class="btn" href="https://raw.githubusercontent.com/tiktoknotificationtroll-wq/Revenge-plugin/gh-pages">Add plugin repository ↗</a><a class="btn secondary" href="https://github.com/tiktoknotificationtroll-wq/Revenge-plugin">View source</a></div>
+<div class="meta"><span class="pill">Version 1.0.2</span><span class="pill">By Niche Games</span><span class="pill">Revenge</span></div>
+</div>
+<div class="preview">
+<div class="preview-head"><div class="avatar">N</div><div><div class="user">Your profile</div><div class="sub">A preview of your custom showcase</div></div></div>
+<div class="badges"><span class="badge">✦ Custom badge</span><span class="badge">◷ Joined showcase</span><span class="badge">🎮 Minecraft · 128h</span><span class="badge">🎧 Music fan</span></div>
+</div>
+<section><h2>What it adds</h2><div class="grid">
+<article class="card"><h3>Custom badges</h3><p>Add your own cosmetic labels to your profile badge row.</p></article>
+<article class="card"><h3>Showcase date</h3><p>Set a fictional account creation date for your local profile display.</p></article>
+<article class="card"><h3>Game activity</h3><p>Show custom game names and mock playtime as profile cosmetics.</p></article>
+<article class="card"><h3>Your settings</h3><p>Change the values from BadgeForge's plugin settings whenever you want.</p></article>
+</div></section>
+<section><h2>Installation</h2><div class="steps">
+<div class="step"><div class="num">1</div><p><strong>Open Revenge settings.</strong><br>Go to the plugin repository / manager section.</p></div>
+<div class="step"><div class="num">2</div><p><strong>Add the repository.</strong><br>Copy this repository URL:<br><code>https://raw.githubusercontent.com/tiktoknotificationtroll-wq/Revenge-plugin/gh-pages</code></p></div>
+<div class="step"><div class="num">3</div><p><strong>Install BadgeForge.</strong><br>Refresh the repository, find BadgeForge and install it. Enable the plugin if prompted.</p></div>
+<div class="step"><div class="num">4</div><p><strong>Make it yours.</strong><br>Open BadgeForge's settings and edit your badges, date and game showcase.</p></div>
+</div></section>
+<div class="note"><strong>Important:</strong> BadgeForge is a local cosmetic showcase. It does not grant official Discord badges, change Discord account data or make these mock details visible to other users. Actual display depends on compatibility with your installed Revenge build.</div>
+</main>
+<footer><span>BadgeForge · Made by Niche Games</span><a href="https://github.com/tiktoknotificationtroll-wq/Revenge-plugin">GitHub repository ↗</a></footer>
+</div></body></html>
