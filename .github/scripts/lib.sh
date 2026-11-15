@@ -18,8 +18,8 @@ pages_base_url() {
     owner="${owner,,}"
 
     # User and organization sites serve from the domain root.
-    local base="https://${owner}.github.io"
-    [ "$repo" = "${owner}.github.io" ] || base="${base}/${repo}"
+    # Serve directly from the public gh-pages branch, so GitHub Pages setup is not required.
+    local base="https://raw.githubusercontent.com/${owner}/${repo}/${POOL_BRANCH}"
 
     printf '%s' "$base"
 }
