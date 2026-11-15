@@ -1,0 +1,48 @@
+name: Publish direct-install files
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/publish-direct.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Check out published pool
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: published
+          fetch-depth: 0
+
+      - name: Extract latest plugin package
+        run: |
+          set -euo pipefail
+          mkdir -p published/direct
+          unzip -o "published/pool/dev.nichegames.badgeforge@1.0.4.zip" -d published/direct
+          test -s published/direct/manifest.json
+          test -s published/direct/index.js
+          cat published/direct/manifest.json
+
+      - name: Publish direct-install endpoint
+        run: |
+          set -euo pipefail
+          cd published
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add direct/manifest.json direct/index.js
+          if git diff --cached --quiet; then
+            echo "Direct-install files are already current."
+          else
+            git commit -m "Publish BadgeForge direct-install endpoint"
+            git push origin gh-pages
+          fi
