@@ -4,7 +4,7 @@
   "name": "BadgeForge",
   "description": "Create a local-only mock profile showcase with custom badge labels, account date and game playtime.",
   "author": "Niche Games",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "dependencies": {
     "revenge.api": {
       "version": ">=1 <2"
