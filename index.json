@@ -1,7 +1,7 @@
 {
   "format": 1,
-  "name": "My Plugin Repository",
-  "description": "Example plugin repository from the Revenge plugin template.",
+  "name": "BadgeForge Plugin Repository",
+  "description": "Local cosmetic profile showcase tools for Revenge.",
   "plugins": {
     "dev.nichegames.badgeforge": {
       "name": "BadgeForge",
